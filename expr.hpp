@@ -52,3 +52,14 @@ struct Unary_expr : public Expr {
 protected:	
 	Unary_expr(Kind k, Type* t, Expr* e) : Expr(k, t) { }
 };
+
+struct Binary_expr : public Expr {
+protected:
+	Binary_expr(Kind k, Type* t, Expr* e1, Expr* e2) : Expr(k, t) { }
+};
+
+struct Ternary_expr : public Expr {
+protected:
+	Ternary_expr(Kind k, Type* t, Expr* e1, Expr* e2, Expr* e3) : Expr(k, t) { }
+};
+
