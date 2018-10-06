@@ -1,8 +1,9 @@
 #pragma once
 
 class Type;
+class Decl; 
 
-class Expr {
+struct Expr {
 public:
     enum Kind {
     bool_lit,
@@ -29,19 +30,25 @@ public:
     call_expr,
 	};
 
-protected:
   Expr(Kind k, Type* t);
 
-public:
   Kind get_kind() const { return m_kind; }
-  /// Returns the kind of expression.
 
   Type* print_type() { 
 		return this->m_type;
   }
 
-private:
   Kind m_kind;
 
   Type* m_type;
+};
+
+struct Nullary_expr : public Expr { 
+protected:
+	Nullary_expr(Kind k, Type* t) : Expr(k, t) { }
+};
+
+struct Unary_expr : public Expr {
+protected:	
+	Unary_expr(Kind k, Type* t, Expr* e) : Expr(k, t) { }
 };

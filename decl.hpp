@@ -8,7 +8,7 @@ class Expr;
 class Stmt;
 class Printer;
 
-class Decl
+struct Decl
 {
 public:
   enum Kind
